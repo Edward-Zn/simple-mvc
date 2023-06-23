@@ -5,6 +5,12 @@ class EmailSender implements Sender
 {
     public function send($record)
     {
-        return $record;
+        echo "Email would be sent with the following data: <br>";
+        print_r($record['title']);
+        echo '<br>';
+        print_r($record['info']);
+        echo '<br>';
+
+        return true;
     }
 }

@@ -10,4 +10,4 @@ CREATE TABLE information (
     PRIMARY KEY (id)
 );
 
-MySQL configuration are in config.php file
+MySQL configurations are in config.php file

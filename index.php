@@ -32,15 +32,19 @@ if ($dbRes) {
     if (isset($dbRes['id'])) {
         $lastRecord = $information->getData($dbRes['id']);
 
-        $emailSender->send($lastRecord);
-        $smsSender->send($lastRecord);
-        
-        echo '<i style="color:DodgerBlue;">';
-        echo 'Row saved: <br>';
-        echo '</i>';
-
-        echo '<strong>Title:</strong><br>' . $lastRecord['title'] . '<br>';
-        echo '<strong>Text:</strong><br>' . ($lastRecord['info'] ?: '- No text -') . '<br>';
+        echo '<p>';
+            echo '<i style="color:DodgerBlue;">';
+            echo 'Row saved: <br>';
+            echo '</i>';
+            echo '<strong>Title:</strong><br>' . $lastRecord['title'] . '<br>';
+            echo '<strong>Text:</strong><br>' . ($lastRecord['info'] ?: '- No text -');
+        echo '</p>';
+        echo '<p>';
+            $emailSender->send($lastRecord);
+            echo '<br>';
+            $smsSender->send($lastRecord);
+            echo '<br>';
+        echo '</p>';
     } else {
         echo '<h5 style="color:Tomato;">';
         echo $dbRes['message'];
